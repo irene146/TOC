@@ -32,6 +32,8 @@ def merge_picarro_files(root_folder):
 
     # drop date and time columns 
     merged_df.drop(columns=['DATE', 'TIME'], inplace=True)
+    #index as datetime
+    merged_df.set_index('datetime', inplace=True)
 
     #  datetime first
     columns = ['datetime'] + [col for col in merged_df.columns if col != 'datetime']
